@@ -1,13 +1,9 @@
-Version: 1.0
-
-RestoreWorkspace: Default
-SaveWorkspace: Default
-AlwaysSaveHistory: Default
-
-EnableCodeIndexing: Yes
-UseSpacesForTab: Yes
-NumSpacesForTab: 2
-Encoding: UTF-8
-
-RnwWeave: Sweave
-LaTeX: pdfLaTeX
+pollutantmean <- function(directory, pollutant, id=1:332) {
+  full_files <- list.files('specdata', full.names=TRUE)
+  iddf <- data.frame()
+  for (x in id) {
+    iddf <- rbind(iddf, read.csv(full_files[x]))
+  }
+  iddfsubset <- iddf[[pollutant]]
+  mean(iddfsubset, na.rm=TRUE)
+}
