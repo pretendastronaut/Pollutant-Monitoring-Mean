@@ -1,3 +1,7 @@
+#read in files from zip file first
+full_files <- list.files('specdata', full.names=TRUE)
+
+
 pollutantmean <- function(directory, pollutant, id=1:332) {
   full_files <- list.files('specdata', full.names=TRUE)
   iddf <- data.frame()
